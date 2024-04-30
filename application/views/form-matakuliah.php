@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="id">
 
 <head>
@@ -16,7 +15,17 @@
 
         th,
         td {
-            padding: 10px;
+            padding: 7px;
+        }
+
+        .form_error {
+            font-style: italic;
+            color: red;
+            text-align: left;
+        }
+
+        .radio {
+            display: inline-block;
         }
     </style>
 </head>
@@ -35,12 +44,27 @@
             <tr>
                 <td>Kode MTK</td>
                 <td>:</td>
-                <td><input type="text" name="kode" id="kode"></td>
+                <td><input type="text" name="kode" id="kode" value="<?= set_value('kode'); ?>"></td>
+                <!-- <th class="form_error">
+                    <small><?= form_error('kode'); ?></small>
+                </th> -->
+            </tr>
+            <tr>
+                <td colspan="2"></td>
+                <th class="form_error">
+                    <small><?= form_error('kode'); ?></small>
+                </th>
             </tr>
             <tr>
                 <td>Nama MTK</td>
                 <td>:</td>
-                <td><input type="text" name="nama" id="nama"></td>
+                <td><input type="text" name="nama" id="nama" value="<?= set_value('nama'); ?>"></td>
+            </tr>
+            <tr>
+                <td colspan="2"></td>
+                <th class="form_error">
+                    <small><?= form_error('nama'); ?></small>
+                </th>
             </tr>
             <tr>
                 <td>SKS</td>
@@ -53,6 +77,32 @@
                         <option value="4">4</option>
                     </select>
                 </td>
+            </tr>
+            <tr>
+                <td colspan="2"></td>
+                <th class="form_error">
+                    <small><?= form_error('sks[]'); ?></small>
+                </th>
+            </tr>
+            <tr>
+                <td>Status MTK</td>
+                <td>:</td>
+                <td colspan="2">
+                    <div class="radio">
+                        <input type="radio" id="status1" name="status" value="Unggulan">
+                        <label for="status1">Unggulan</label>
+                    </div>
+                    <div class="radio">
+                        <input type="radio" id="status2" name="status" value="Tidak Unggulan">
+                        <label for="status2">Tidak Unggulan</label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"></td>
+                <th class="form_error">
+                    <small><?= form_error('status'); ?></small>
+                </th>
             </tr>
             <tr>
                 <td colspan="3"><input type="submit" value="Submit"></td>
